@@ -51,14 +51,24 @@
     setTimeout(()=>gate.remove(),700);
   });
   function dodge(){
-    hint.textContent='لا تبقي تهربي، جرّبي مرة ثانية.';
-    const area=buttons.getBoundingClientRect();
-    const btn=no.getBoundingClientRect();
-    const maxX=Math.max(0,Math.min(window.innerWidth-btn.width-24,window.innerWidth-area.left-btn.width));
-    const maxY=Math.max(0,Math.min(window.innerHeight-btn.height-24,window.innerHeight-area.top-btn.height));
+    hint.textContent='عبزي على نعم خيما نڨعرك';
+    const rect=no.getBoundingClientRect();
+    const yesRect=yes.getBoundingClientRect();
+    const pad=8;
+    const maxShift=34;
+    const dx=(Math.random()*2-1)*maxShift;
+    const dy=(Math.random()*2-1)*18;
+    let left=rect.left+dx;
+    let top=rect.top+dy;
+    left=Math.max(pad,Math.min(window.innerWidth-rect.width-pad,left));
+    top=Math.max(pad,Math.min(window.innerHeight-rect.height-pad,top));
+    if(Math.abs(left-yesRect.left)<rect.width*.55 && Math.abs(top-yesRect.top)<rect.height*.7){
+      left=Math.max(pad,Math.min(window.innerWidth-rect.width-pad,rect.left+(dx<0?-maxShift:maxShift)));
+      top=rect.top;
+    }
     no.style.position='fixed';
-    no.style.left=(12+Math.random()*maxX)+'px';
-    no.style.top=(12+Math.random()*maxY)+'px';
+    no.style.left=left+'px';
+    no.style.top=top+'px';
     no.style.zIndex='1002';
   }
   no.addEventListener('pointerenter',dodge);
