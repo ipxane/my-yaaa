@@ -8,7 +8,8 @@
 :root{--bg:#130a10;--wine:#641d35;--rose:#ed8b91;--cream:#f8e8dc;--gold:#d9b88b;--muted:#cbb8c1}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% 5%,#3b1225 0,transparent 42%),var(--bg);color:var(--cream);font-family:'Cairo',sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:radial-gradient(#f9d5dd .6px,transparent .6px);background-size:22px 22px;mask-image:linear-gradient(to bottom,#000,transparent 80%)}.wrap{width:min(100% - 32px,900px);margin:auto}.top{padding:28px 0 12px;text-align:center;color:var(--gold);font-size:13px;letter-spacing:.08em}.hero{text-align:center;padding:18px 0 48px;position:relative}.eyebrow{display:inline-block;border:1px solid #8d465c;border-radius:99px;padding:7px 15px;color:#e9c8b7;font-size:12px;background:#2b101d80}.hero h1{font-family:'Amiri',serif;font-size:clamp(38px,9vw,76px);line-height:1.25;font-weight:700;margin:20px auto 10px;max-width:700px}.hero h1 span{color:#f18f98;text-shadow:0 0 30px #e8587a45}.lead{color:#d8c3cc;font-size:clamp(14px,3.5vw,18px);line-height:2;max-width:570px;margin:0 auto}.bouquet-frame{position:relative;width:min(100%,540px);margin:10px auto 0;isolation:isolate}.bouquet-frame:before{content:"";position:absolute;z-index:-1;width:75%;height:72%;left:12%;top:11%;background:#9e2f4b55;filter:blur(70px);border-radius:50%}.bouquet{display:block;width:100%;height:auto;max-height:720px;object-fit:contain;filter:drop-shadow(0 18px 32px #0008);animation:float 6s ease-in-out infinite}.caption{color:#d9b88b;font-family:'Amiri',serif;font-size:18px;margin-top:-12px}.section{padding:32px 0 54px;text-align:center}.divider{display:flex;align-items:center;gap:14px;justify-content:center;color:var(--gold);font-size:18px;margin:0 auto 18px}.divider:before,.divider:after{content:"";width:48px;height:1px;background:linear-gradient(90deg,transparent,#a65b6d)}.divider:after{transform:rotate(180deg)}h2{font-family:'Amiri',serif;font-size:clamp(30px,7vw,46px);line-height:1.4;margin:0 0 16px}.apology{max-width:630px;margin:auto;background:linear-gradient(145deg,#351421b8,#1e1019c9);border:1px solid #8d465c75;border-radius:24px;padding:26px 22px;box-shadow:0 18px 55px #0003}.apology p{font-size:16px;line-height:2.1;color:#ead8df;margin:0}.apology .highlight{color:#f5a0a5;font-weight:700}.gift{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;text-align:right;background:#211019a8;border:1px solid #623044;border-radius:28px;padding:20px;overflow:hidden}.gift img{width:100%;max-height:390px;object-fit:contain;filter:drop-shadow(0 10px 20px #0006)}.gift h3{font-family:'Amiri',serif;font-size:clamp(25px,5vw,37px);margin:0 0 12px}.gift p{color:#d9c5cd;line-height:2;margin:0;font-size:15px}.note{font-family:'Amiri',serif;font-size:clamp(23px,5vw,34px);line-height:1.9;color:#f4d7d7;max-width:700px;margin:0 auto}.note em{color:#f18f98;font-style:normal}.signature{margin-top:20px;color:var(--gold);font-size:14px}.end{padding:22px 0 40px;text-align:center;color:#9f8792;font-size:12px}.heart{display:inline-block;color:#ef8291;animation:pulse 1.7s infinite}.petal{position:fixed;top:-40px;z-index:3;pointer-events:none;color:#e75c77;opacity:.65;animation:fall linear forwards}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}@keyframes pulse{50%{transform:scale(1.25)}}@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}@media(max-width:620px){.wrap{width:min(100% - 24px,540px)}.hero{padding-top:12px}.bouquet-frame{width:100%;margin-top:18px}.gift{grid-template-columns:1fr;text-align:center;padding:18px}.gift img{max-height:330px;width:82%;margin:auto;grid-row:1}.gift div{grid-row:2}.apology{padding:22px 18px}.section{padding:26px 0 42px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
 
-/* شاشة السؤال قبل دخول الهدية */\n.gate-big-message{font-family:'Cairo',sans-serif;font-size:clamp(22px,6vw,32px);font-weight:700;line-height:1.7;color:#f5a0a5;margin:8px auto 0;min-height:0;opacity:0;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease}.gate-big-message.show{opacity:1;transform:translateY(0)}.gate-big-message:empty{display:none}
+/* شاشة السؤال قبل دخول الهدية */
+.gate-intro{transition:opacity .2s ease,transform .2s ease}.gate-intro.hide{display:none}.gate-big-message{font-family:'Cairo',sans-serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.7;color:#f5a0a5;margin:12px auto 20px;min-height:0;opacity:0;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease}.gate-big-message.show{opacity:1;transform:translateY(0)}.gate-big-message:empty{display:none}
 .gate{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at 50% 35%,#421528 0%,#1b0b14 58%,#10070c 100%);transition:opacity .65s ease,visibility .65s ease}
 .gate.hidden{opacity:0;visibility:hidden;pointer-events:none}
 .gate-card{width:min(100%,440px);text-align:center;padding:36px 22px 30px;border:1px solid #8d465c99;border-radius:28px;background:linear-gradient(145deg,#351421d9,#1c0d16ed);box-shadow:0 25px 80px #0008;position:relative;overflow:hidden}
@@ -23,18 +24,20 @@
 .no-btn{border:1px solid #795063;background:#27121e;color:#ead8df}
 .gate-hint{font-size:12px!important;color:#ad8e9d!important;margin:18px 0 0!important;min-height:23px}
 @media(max-width:380px){.gate-card{padding:30px 16px 24px}.gate-btn{min-width:100px;padding:11px 22px}}
-\n</style></head><body>
+
+</style></head><body>
 <div class="gate" id="loveGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
   <div class="gate-card">
     <div class="gate-flower" aria-hidden="true">✿</div>
-    <div class="gate-kicker">سؤال صغير</div>
+    <div class="gate-intro" id="gateIntro"><div class="gate-kicker">سؤال صغير</div>
     <h1 id="gateTitle">تحبّيني؟</h1>
-    <p>جاوبي بصراحة.<br><strong>هل تحبّينني؟</strong></p>
+    <p>جاوبي بصراحة.<br><strong>هل تحبّينني؟</strong></p></div>
+    <div class="gate-big-message" id="gateBigMessage" aria-live="polite"></div>
     <div class="gate-buttons" id="gateButtons">
       <button class="gate-btn yes-btn" id="yesBtn" type="button">نعم</button>
       <button class="gate-btn no-btn" id="noBtn" type="button">لا</button>
     </div>
-    <p class="gate-hint" id="gateHint" aria-live="polite">اختاري إجابتكِ</p><div class="gate-big-message" id="gateBigMessage" aria-live="polite"></div>
+    <p class="gate-hint" id="gateHint" aria-live="polite">اختاري إجابتكِ</p>
   </div>
 </div>
 <div class="wrap"><header class="top">صُنعت لكِ بكل حبّ <span class="heart">♥</span></header><main><section class="hero"><div class="eyebrow">إلى صاحبة أجمل مكان في قلبي</div><h1>قبل أن تصلكِ <span>وردة حقيقية</span>…</h1><p class="lead">أردتُ أن تصلكِ وردة صغيرة من عالمي، تحمل شيئًا من مشاعري لكِ.</p><div class="bouquet-frame"><img class="bouquet" src="tulips-pink.png" alt="باقة توليب وردية حقيقية لكِ"></div><div class="caption">أول هدية إلكترونية حقيقية أهديها لكِ 🌷</div></section><section class="section"><div class="divider">كلمة من قلبي</div><div class="apology"><h2>حقكِ عليّ 🤍</h2><p>أعرف أن ما حدث اليوم ضايقكِ، وآسف من قلبي إن كان كلامي أو أسلوبي قد جرحكِ. <span class="highlight">آخر ما أريده أن أكون سببًا في حزنكِ.</span><br>أنتِ غالية عندي، ومشاعركِ تهمّني، وسأحاول أن أكون أحنّ في كلامي وأفهمكِ أكثر. لا أريد اعتذارًا بالكلام فقط، بل أن تريه في تصرّفاتي أيضًا.</p></div></section><section class="section"><div class="divider">هدية صغيرة</div><div class="gift"><div><h3>هذه وردتكِ الأولى</h3><p>ليست من متجر، ولم ألمسها بيدي بعد… لكنني اخترتها لكِ بمحبة، وصنعتُ لها مكانًا هنا حتى تصلكِ ولو من خلف الشاشة.</p></div><img src="tulips-red.png" alt="باقة توليب حمراء ملفوفة بورق أنيق"></div></section><section class="section"><div class="divider">وعد صغير</div><p class="note">وحين أهديكِ يومًا <em>وردة حقيقية</em> بيدي، تذكّري هذه…<br>كانت أول وردة إلكترونية، لكنها خرجت من قلبٍ أحبّ أن يُفرحكِ. <span class="heart">♥</span></p><div class="signature">لكِ أنتِ، بكل الودّ الذي في قلبي</div></section></main><footer class="end">صغيرةٌ على الشاشة… صادقةٌ في معناها.</footer></div><script>(()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced)return;let count=0;function petal(){if(count>18)return;const p=document.createElement('span');p.className='petal';p.textContent=Math.random()>.5?'✿':'♥';p.style.left=Math.random()*100+'vw';p.style.fontSize=(10+Math.random()*12)+'px';p.style.animationDuration=(8+Math.random()*7)+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),16000);count++;setTimeout(()=>count--,900);setTimeout(petal,1100+Math.random()*1000)}petal()})();</script>
@@ -43,7 +46,23 @@
   const gate=document.getElementById('loveGate');
   const yes=document.getElementById('yesBtn');
   const no=document.getElementById('noBtn');
-  const hint=document.getElementById('gateHint');\n  const bigMessage=document.getElementById('gateBigMessage');\n  const noMessages=['على على نعم خيما نڨعرك','والخرا منين تفهمي','قودي زعفت'];\n  let messageIndex=-1;\n  let messageTimer;\n  function showRandomMessage(){\n    let next; do { next=Math.floor(Math.random()*noMessages.length); } while(noMessages.length>1 && next===messageIndex);\n    messageIndex=next;\n    const message=noMessages[next];\n    hint.textContent=message;\n    bigMessage.textContent=message;\n    bigMessage.classList.add('show');\n    clearTimeout(messageTimer);\n    messageTimer=setTimeout(()=>{bigMessage.classList.remove('show');},1800);\n  }
+  const hint=document.getElementById('gateHint');
+  const bigMessage=document.getElementById('gateBigMessage');
+  const intro=document.getElementById('gateIntro');
+  const noMessages=['؟','عبزي على نعم خيما نڨعرك','والخرا منين تفهمي','قودي زعفت','نيو مكانش','امشي قودي ماتهدريش معايا'];
+  let messageIndex=-1;
+  let messageTimer;
+  function showRandomMessage(){
+    let next; do { next=Math.floor(Math.random()*noMessages.length); } while(noMessages.length>1 && next===messageIndex);
+    messageIndex=next;
+    const message=noMessages[next];
+    hint.textContent=message;
+    bigMessage.textContent=message;
+    intro.classList.add('hide');
+    bigMessage.classList.add('show');
+    clearTimeout(messageTimer);
+    messageTimer=setTimeout(()=>{bigMessage.classList.remove('show');intro.classList.remove('hide');},1800);
+  }
   const buttons=document.getElementById('gateButtons');
   yes.addEventListener('click',()=>{
     gate.classList.add('hidden');
