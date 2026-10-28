@@ -42,58 +42,67 @@
 </div>
 <div class="wrap"><header class="top">صُنعت لكِ بكل حبّ <span class="heart">♥</span></header><main><section class="hero"><div class="eyebrow">إلى صاحبة أجمل مكان في قلبي</div><h1>قبل أن تصلكِ <span>وردة حقيقية</span>…</h1><p class="lead">أردتُ أن تصلكِ وردة صغيرة من عالمي، تحمل شيئًا من مشاعري لكِ.</p><div class="bouquet-frame"><img class="bouquet" src="tulips-pink.png" alt="باقة توليب وردية حقيقية لكِ"></div><div class="caption">أول هدية إلكترونية حقيقية أهديها لكِ 🌷</div></section><section class="section"><div class="divider">كلمة من قلبي</div><div class="apology"><h2>حقكِ عليّ 🤍</h2><p>أعرف أن ما حدث اليوم ضايقكِ، وآسف من قلبي إن كان كلامي أو أسلوبي قد جرحكِ. <span class="highlight">آخر ما أريده أن أكون سببًا في حزنكِ.</span><br>أنتِ غالية عندي، ومشاعركِ تهمّني، وسأحاول أن أكون أحنّ في كلامي وأفهمكِ أكثر. لا أريد اعتذارًا بالكلام فقط، بل أن تريه في تصرّفاتي أيضًا.</p></div></section><section class="section"><div class="divider">هدية صغيرة</div><div class="gift"><div><h3>هذه وردتكِ الأولى</h3><p>ليست من متجر، ولم ألمسها بيدي بعد… لكنني اخترتها لكِ بمحبة، وصنعتُ لها مكانًا هنا حتى تصلكِ ولو من خلف الشاشة.</p></div><img src="tulips-red.png" alt="باقة توليب حمراء ملفوفة بورق أنيق"></div></section><section class="section"><div class="divider">وعد صغير</div><p class="note">وحين أهديكِ يومًا <em>وردة حقيقية</em> بيدي، تذكّري هذه…<br>كانت أول وردة إلكترونية، لكنها خرجت من قلبٍ أحبّ أن يُفرحكِ. <span class="heart">♥</span></p><div class="signature">لكِ أنتِ، بكل الودّ الذي في قلبي</div></section></main><footer class="end">صغيرةٌ على الشاشة… صادقةٌ في معناها.</footer></div><script>(()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced)return;let count=0;function petal(){if(count>18)return;const p=document.createElement('span');p.className='petal';p.textContent=Math.random()>.5?'✿':'♥';p.style.left=Math.random()*100+'vw';p.style.fontSize=(10+Math.random()*12)+'px';p.style.animationDuration=(8+Math.random()*7)+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),16000);count++;setTimeout(()=>count--,900);setTimeout(petal,1100+Math.random()*1000)}petal()})();</script>
 <script>
-(()=> {
-  const gate=document.getElementById('loveGate');
-  const yes=document.getElementById('yesBtn');
-  const no=document.getElementById('noBtn');
-  const hint=document.getElementById('gateHint');
-  const bigMessage=document.getElementById('gateBigMessage');
-  const intro=document.getElementById('gateIntro');
-  const noMessages=['؟','عبزي على نعم خيما نڨعرك','والخرا منين تفهمي','قودي زعفت','نيو مكانش','امشي قودي ماتهدريش معايا'];
-  let messageIndex=-1;
-  let messageTimer;
-  function showRandomMessage(){
-    let next; do { next=Math.floor(Math.random()*noMessages.length); } while(noMessages.length>1 && next===messageIndex);
-    messageIndex=next;
-    const message=noMessages[next];
-    hint.textContent=message;
-    bigMessage.textContent=message;
+(function () {
+  const gate = document.getElementById('loveGate');
+  const yes = document.getElementById('yesBtn');
+  const no = document.getElementById('noBtn');
+  const hint = document.getElementById('gateHint');
+  const bigMessage = document.getElementById('gateBigMessage');
+  const intro = document.getElementById('gateIntro');
+  const messages = ['؟', 'عبزي على نعم خيما نڨعرك', 'والخرا منين تفهمي', 'قودي زعفت', 'نيو مكانش', 'امشي قودي ماتهدريش معايا'];
+  let lastMessage = -1;
+  let messageTimer = null;
+
+  if (!gate || !yes || !no || !hint || !bigMessage || !intro) return;
+
+  yes.addEventListener('click', function () {
+    gate.classList.add('hidden');
+    document.body.style.overflow = '';
+    window.setTimeout(function () { gate.remove(); }, 700);
+  });
+
+  function showMessage() {
+    let index = Math.floor(Math.random() * messages.length);
+    if (messages.length > 1 && index === lastMessage) index = (index + 1) % messages.length;
+    lastMessage = index;
+    hint.textContent = messages[index];
+    bigMessage.textContent = messages[index];
     intro.classList.add('hide');
     bigMessage.classList.add('show');
-    clearTimeout(messageTimer);
-    messageTimer=setTimeout(()=>{bigMessage.classList.remove('show');intro.classList.remove('hide');},1800);
+    if (messageTimer) window.clearTimeout(messageTimer);
+    messageTimer = window.setTimeout(function () {
+      bigMessage.classList.remove('show');
+      intro.classList.remove('hide');
+    }, 1800);
   }
-  const buttons=document.getElementById('gateButtons');
-  yes.addEventListener('click',()=>{
-    gate.classList.add('hidden');
-    document.body.style.overflow='';
-    setTimeout(()=>gate.remove(),700);
-  });
-  function dodge(){
-    showRandomMessage();
-    const rect=no.getBoundingClientRect();
-    const yesRect=yes.getBoundingClientRect();
-    const pad=8;
-    const maxShift=Math.min(190,window.innerWidth*0.42);
-    const dx=(Math.random()*2-1)*maxShift;
-    const dy=(Math.random()*2-1)*Math.min(115,window.innerHeight*0.18);
-    let left=rect.left+dx;
-    let top=rect.top+dy;
-    left=Math.max(pad,Math.min(window.innerWidth-rect.width-pad,left));
-    top=Math.max(pad,Math.min(window.innerHeight-rect.height-pad,top));
-    if(Math.abs(left-yesRect.left)<rect.width*.55 && Math.abs(top-yesRect.top)<rect.height*.7){
-      left=Math.max(pad,Math.min(window.innerWidth-rect.width-pad,rect.left+(dx<0?-maxShift:maxShift)));
-      top=rect.top;
+
+  function dodge(event) {
+    if (event) event.preventDefault();
+    showMessage();
+    const rect = no.getBoundingClientRect();
+    const yesRect = yes.getBoundingClientRect();
+    const pad = 12;
+    const maxX = Math.max(0, window.innerWidth - rect.width - pad * 2);
+    const maxY = Math.max(0, window.innerHeight - rect.height - pad * 2);
+    const spreadX = Math.min(230, window.innerWidth * 0.55);
+    const spreadY = Math.min(150, window.innerHeight * 0.25);
+    let left = Math.max(pad, Math.min(maxX + pad, rect.left + (Math.random() * 2 - 1) * spreadX));
+    let top = Math.max(pad, Math.min(maxY + pad, rect.top + (Math.random() * 2 - 1) * spreadY));
+    if (Math.abs(left - yesRect.left) < rect.width * 0.6 && Math.abs(top - yesRect.top) < rect.height * 0.8) {
+      left = Math.max(pad, Math.min(maxX + pad, rect.left + (left < rect.left ? spreadX : -spreadX)));
     }
-    no.style.position='fixed';
-    no.style.left=left+'px';
-    no.style.top=top+'px';
-    no.style.zIndex='1002';
+    no.style.position = 'fixed';
+    no.style.left = left + 'px';
+    no.style.top = top + 'px';
+    no.style.zIndex = '1002';
   }
-  no.addEventListener('pointerenter',dodge);
-  no.addEventListener('click',(e)=>{e.preventDefault();dodge();});
-  no.addEventListener('touchstart',(e)=>{e.preventDefault();dodge();},{passive:false});
-  document.body.style.overflow='hidden';
+
+  no.addEventListener('pointerenter', function (event) {
+    if (event.pointerType === 'mouse') dodge();
+  });
+  no.addEventListener('click', dodge);
+  no.addEventListener('touchstart', dodge, { passive: false });
+  document.body.style.overflow = 'hidden';
 })();
 </script>
 </body></html>
