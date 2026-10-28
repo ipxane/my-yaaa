@@ -26,15 +26,15 @@
 \n</style></head><body>
 <div class="gate" id="loveGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
   <div class="gate-card">
-    <div class="gate-flower" aria-hidden="true">🌷💗🌷</div>
-    <div class="gate-kicker">قبل أن تصلكِ هديّتي الصغيرة</div>
-    <h1 id="gateTitle">هذا الحبّ لكِ…</h1>
-    <p>قولي لي من قلبكِ، يا أجمل هدايا الحياة…<br><strong>هل تحبّينني؟</strong></p>
+    <div class="gate-flower" aria-hidden="true">✿</div>
+    <div class="gate-kicker">سؤال صغير</div>
+    <h1 id="gateTitle">تحبّيني؟</h1>
+    <p>جاوبي بصراحة.<br><strong>هل تحبّينني؟</strong></p>
     <div class="gate-buttons" id="gateButtons">
-      <button class="gate-btn yes-btn" id="yesBtn" type="button">نعم، أحبك ❤️</button>
-      <button class="gate-btn no-btn" id="noBtn" type="button">لا 🙈</button>
+      <button class="gate-btn yes-btn" id="yesBtn" type="button">نعم</button>
+      <button class="gate-btn no-btn" id="noBtn" type="button">لا</button>
     </div>
-    <p class="gate-hint" id="gateHint" aria-live="polite">اختاري إجابتكِ يا وردتي 🌸</p>
+    <p class="gate-hint" id="gateHint" aria-live="polite">اختاري إجابتكِ</p>
   </div>
 </div>
 <div class="wrap"><header class="top">صُنعت لكِ بكل حبّ <span class="heart">♥</span></header><main><section class="hero"><div class="eyebrow">إلى صاحبة أجمل مكان في قلبي</div><h1>قبل أن تصلكِ <span>وردة حقيقية</span>…</h1><p class="lead">أردتُ أن تصلكِ وردة صغيرة من عالمي، تحمل شيئًا من مشاعري لكِ.</p><div class="bouquet-frame"><img class="bouquet" src="tulips-pink.png" alt="باقة توليب وردية حقيقية لكِ"></div><div class="caption">أول هدية إلكترونية حقيقية أهديها لكِ 🌷</div></section><section class="section"><div class="divider">كلمة من قلبي</div><div class="apology"><h2>حقكِ عليّ 🤍</h2><p>أعرف أن ما حدث اليوم ضايقكِ، وآسف من قلبي إن كان كلامي أو أسلوبي قد جرحكِ. <span class="highlight">آخر ما أريده أن أكون سببًا في حزنكِ.</span><br>أنتِ غالية عندي، ومشاعركِ تهمّني، وسأحاول أن أكون أحنّ في كلامي وأفهمكِ أكثر. لا أريد اعتذارًا بالكلام فقط، بل أن تريه في تصرّفاتي أيضًا.</p></div></section><section class="section"><div class="divider">هدية صغيرة</div><div class="gift"><div><h3>هذه وردتكِ الأولى</h3><p>ليست من متجر، ولم ألمسها بيدي بعد… لكنني اخترتها لكِ بمحبة، وصنعتُ لها مكانًا هنا حتى تصلكِ ولو من خلف الشاشة.</p></div><img src="tulips-red.png" alt="باقة توليب حمراء ملفوفة بورق أنيق"></div></section><section class="section"><div class="divider">وعد صغير</div><p class="note">وحين أهديكِ يومًا <em>وردة حقيقية</em> بيدي، تذكّري هذه…<br>كانت أول وردة إلكترونية، لكنها خرجت من قلبٍ أحبّ أن يُفرحكِ. <span class="heart">♥</span></p><div class="signature">لكِ أنتِ، بكل الودّ الذي في قلبي</div></section></main><footer class="end">صغيرةٌ على الشاشة… صادقةٌ في معناها.</footer></div><script>(()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced)return;let count=0;function petal(){if(count>18)return;const p=document.createElement('span');p.className='petal';p.textContent=Math.random()>.5?'✿':'♥';p.style.left=Math.random()*100+'vw';p.style.fontSize=(10+Math.random()*12)+'px';p.style.animationDuration=(8+Math.random()*7)+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),16000);count++;setTimeout(()=>count--,900);setTimeout(petal,1100+Math.random()*1000)}petal()})();</script>
@@ -51,7 +51,7 @@
     setTimeout(()=>gate.remove(),700);
   });
   function dodge(){
-    hint.textContent='ههههه، لا تهربي منّي 😭 جرّبي مرة ثانية يا قلبي!';
+    hint.textContent='لا تبقي تهربي، جرّبي مرة ثانية.';
     const area=buttons.getBoundingClientRect();
     const btn=no.getBoundingClientRect();
     const maxX=Math.max(0,Math.min(window.innerWidth-btn.width-24,window.innerWidth-area.left-btn.width));
