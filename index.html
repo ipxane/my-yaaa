@@ -55,9 +55,9 @@
     const rect=no.getBoundingClientRect();
     const yesRect=yes.getBoundingClientRect();
     const pad=8;
-    const maxShift=34;
+    const maxShift=Math.min(190,window.innerWidth*0.42);
     const dx=(Math.random()*2-1)*maxShift;
-    const dy=(Math.random()*2-1)*18;
+    const dy=(Math.random()*2-1)*Math.min(115,window.innerHeight*0.18);
     let left=rect.left+dx;
     let top=rect.top+dy;
     left=Math.max(pad,Math.min(window.innerWidth-rect.width-pad,left));
