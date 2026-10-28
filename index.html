@@ -96,9 +96,6 @@
     no.style.zIndex = '1002';
   }
 
-  no.addEventListener('pointerenter', function (event) {
-    if (event.pointerType === 'mouse') dodge();
-  });
   no.addEventListener('click', dodge);
   no.addEventListener('touchstart', dodge, { passive: false });
   document.body.style.overflow = 'hidden';
