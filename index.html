@@ -62,8 +62,7 @@
   });
 
   function showMessage() {
-    let index = Math.floor(Math.random() * messages.length);
-    if (messages.length > 1 && index === lastMessage) index = (index + 1) % messages.length;
+    const index = (lastMessage + 1) % messages.length;
     lastMessage = index;
     hint.textContent = messages[index];
     bigMessage.textContent = messages[index];
